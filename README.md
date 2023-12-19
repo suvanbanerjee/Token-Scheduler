@@ -37,12 +37,9 @@ Welcome to this project! This system will change the way you wait in line at the
 4. Wait for your token to be called by our super friendly bank staff. They might even crack a joke or two!
 5. Check the status of your token and see how many lucky people are ahead of you. Patience is a virtue, my friend!
 
+## FAQ
 
-
-##FAQ
-
-
-### How does it work? :thinking:
+### How does it work? 
 
 
 The system is composed of two main parts: the server and the client. The server is responsible for managing the tokens and the queues, while the client is responsible for displaying the tokens and calling them. The server and the client communicate with each other using websockets.
