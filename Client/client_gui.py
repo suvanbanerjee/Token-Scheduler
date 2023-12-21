@@ -1,17 +1,19 @@
-import PySimpleGUI as sg      
+import PySimpleGUI as sg
 
-sg.preview_all_look_and_feel_themes()
+layout = [[sg.Column([[sg.Button('Next Token', size=(10, 2))]], justification='center')],
+    [sg.Column([[sg.Button('Hold Token', size=(10, 2))]], justification='center')],
+    [sg.Column([[sg.Button('Close', size=(6, 1))]], justification='center')]]
 
-layout = [[sg.Text('Persistent window')],      
-          [sg.Input(key='-IN-')],      
-          [sg.Button('Read'), sg.Exit()]]      
+window = sg.Window('Token Scheduler', layout, size=(200, 200), finalize=True)
 
-window = sg.Window('Window that stays open', layout)      
-
-while True:                             # The Event Loop
-    event, values = window.read() 
-    print(event, values)       
-    if event == sg.WIN_CLOSED or event == 'Exit':
-        break      
-
+while True:
+    event, values = window.read()
+    if event == sg.WINDOW_CLOSED or event == 'Close':
+        break
+    elif event == 'Next Token':
+        # TODO: Add code for handling "Next Token" button click
+        pass
+    elif event == 'Put on Hold':
+        # TODO: Add code for handling "Put on Hold" button click
+        pass
 window.close()
