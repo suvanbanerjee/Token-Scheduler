@@ -22,9 +22,7 @@ while True:
     if event == sg.WINDOW_CLOSED or event == 'Close':
         break
     elif event == 'Next Token':
-        # TODO: Add code for handling "Next Token" button click
         pass
     elif event == 'Put on Hold':
-        # TODO: Add code for handling "Put on Hold" button click
         pass
 window.close()
