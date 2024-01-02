@@ -1,5 +1,7 @@
 import PySimpleGUI as sg
 import socket
+sg.theme('LightGrey1')
+
 
 
 UDP_IP = "127.0.0.1"
@@ -11,11 +13,10 @@ def NextToken(MESSAGE):
     sock.sendto(bytes(MESSAGE, "utf-8"), (UDP_IP, UDP_PORT))
 
 
-layout = [[sg.Column([[sg.Button('Next Token', size=(10, 2))]], justification='center')],
-    [sg.Column([[sg.Button('Hold Token', size=(10, 2))]], justification='center')],
-    [sg.Column([[sg.Button('Close', size=(6, 1))]], justification='center')]]
+layout = [[sg.Column([[sg.Button('Next Token',font="10" , size=(10, 2), button_color='green')]], justification='center')],
+    [sg.Column([[sg.Button('Hold Token',font="10", size=(10, 2), button_color='red')]], justification='center')]]
 
-window = sg.Window('Token Scheduler', layout, size=(200, 200), finalize=True)
+window = sg.Window('Bank', layout, size=(200, 200), finalize=True)
 
 while True:
     event, values = window.read()
