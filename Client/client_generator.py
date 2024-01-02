@@ -31,7 +31,7 @@ while True:
             [sg.Text('\n  Your token is \n', font='Helvetica 20', justification='center', expand_x=True)],
             [sg.Text(token, font='Helvetica 50 bold', justification='center', expand_x=True, text_color='#0079D3')],
             [sg.Text('\n  Please wait for your turn \n', font='Helvetica 15', justification='center', expand_x=True)],
-            [sg.Column([[sg.Button('Close', size=(5, 2), font='Helvetica 12', button_color="black")]], justification='center')]
+            [sg.Column([[sg.Button('Close', size=(5, 2), font='Helvetica 12', button_color="#0079D3")]], justification='center')]
         ]
         token_window = sg.Window('Token', layout2, finalize=True, resizable=False)
         event, values = token_window.read()
