@@ -1,0 +1,33 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#Token{
+    font-size: 75px;
+    text-align: center;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
+.Row{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.Column{
+    padding: 50px;
+    height: 100px;
+    width: 100px;
+    background-color: #0079D3;
+    margin: 50px;
+    border-radius: 50px;
+}
+
+#Header{
+    font-size: 40px;
+}
+
+#Text{
+    font-size: 40px;
+}
