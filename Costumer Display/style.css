@@ -3,9 +3,9 @@ body {
 }
 
 #Token{
-    font-size: 100px;
+    font-size: 75px;
     text-align: center;
-    margin-top: 100px;
+    font-weight: bold;
 }
 
 .Row{
@@ -16,5 +16,11 @@ body {
 
 .Column{
     padding: 50px;
+    height: 100px;
+    width: 100px;
+    background-color: gray;
+    margin: 50px;
+    border: blue;
+    border-radius: 50px;
 }
 
