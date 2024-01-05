@@ -1,5 +1,8 @@
 import PySimpleGUI as sg
+import pygame.mixer
 
+pygame.mixer.init()
+ding = pygame.mixer.Sound('ding.wav')
 sg.theme('LightGrey1')
 count = 1
 
@@ -26,6 +29,7 @@ while True:
     if event == sg.WINDOW_CLOSED:
         break
     elif event:
+        ding.play()
         token=gen_token(event)
         layout2=[
             [sg.Text('\n  Your token is \n', font='Helvetica 20', justification='center', expand_x=True)],
