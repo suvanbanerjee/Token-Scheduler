@@ -30,9 +30,7 @@ def fcs_scheduler():
             token = remove_token()
             # client_socket.send(bytes(token, "utf-8"))
         elif data == "hold_token":
-            token = client_socket.recv(1024)
-            token = token.decode()
-            prempt_token(token)
+            prempt_token(queue[0])
         elif data == "insert_token":
             token = client_socket.recv(1024)
             token = token.decode()
