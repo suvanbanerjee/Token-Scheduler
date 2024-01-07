@@ -2,7 +2,7 @@ import socket
 global queue 
 TCP_IP = "127.0.0.1"
 TCP_PORT = 1234
-queue = [1,2,3,4,5]
+queue = []
 
 def insert_token(token):
     global queue
@@ -28,13 +28,12 @@ def fcs_scheduler():
         data = data.decode()
         if data == "next_token":
             token = remove_token()
-            # client_socket.send(bytes(token, "utf-8"))
         elif data == "hold_token":
             prempt_token(queue[0])
-        elif data == "insert_token":
+        elif data[0].isnumeric():
             token = client_socket.recv(1024)
             token = token.decode()
-            insert_token(token)
+            insert_token(data)
         
         print(queue)
         client_socket.close()

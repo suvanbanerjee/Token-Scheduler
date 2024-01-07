@@ -6,6 +6,15 @@ pygame.mixer.init()
 ding = pygame.mixer.Sound('ding.mp3')
 sg.theme('LightGrey1')
 count = 1
+TCP_IP = "127.0.0.1"
+TCP_PORT = 1234
+
+def send_token(token):
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    if sock.connect_ex((TCP_IP, TCP_PORT)) == 0:
+        sock.sendto(bytes(token, "utf-8"), (TCP_IP, TCP_PORT))
+    else:
+        sg.popup("Server is not running")
 
 def gen_token(counter):
     global count
@@ -32,6 +41,7 @@ while True:
     elif event:
         ding.play()
         token=gen_token(event)
+        send_token(token)
         layout2=[
             [sg.Text('\n  Your token is \n', font='Helvetica 20', justification='center', expand_x=True)],
             [sg.Text(token, font='Helvetica 50 bold', justification='center', expand_x=True, text_color='#0079D3')],
