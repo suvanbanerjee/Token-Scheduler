@@ -1,5 +1,6 @@
 import PySimpleGUI as sg
 import pygame.mixer
+import socket
 
 pygame.mixer.init()
 ding = pygame.mixer.Sound('ding.mp3')

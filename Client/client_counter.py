@@ -4,14 +4,17 @@ sg.theme('LightGrey1')
 
 
 
-UDP_IP = "127.0.0.1"
-UDP_PORT = 5005
+TCP_IP = "127.0.0.1"
+TCP_PORT = 1234
 
 
-def NextToken(MESSAGE):
-    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    sock.sendto(bytes(MESSAGE, "utf-8"), (UDP_IP, UDP_PORT))
 
+def NextToken():
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    sock.sendto(bytes("next_token", "utf-8"), (TCP_IP, TCP_PORT))
+def HoldToken():
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    sock.sendto(bytes("hold_token", "utf-8"), (TCP_IP, TCP_PORT))
 
 layout = [[sg.Column([[sg.Button('Next Token',font="10" , size=(10, 2), button_color='green')]], justification='center')],
     [sg.Column([[sg.Button('Hold Token',font="10", size=(10, 2), button_color='red')]], justification='center')]]
