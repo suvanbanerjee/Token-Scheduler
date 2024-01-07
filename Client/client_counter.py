@@ -15,6 +15,7 @@ def NextToken():
         sock.sendto(bytes("next_token", "utf-8"), (TCP_IP, TCP_PORT))
     else:
         sg.popup("Server is not running")
+
 def HoldToken():
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     if sock.connect_ex((TCP_IP, TCP_PORT)) == 0:
@@ -33,6 +34,7 @@ while True:
         break
     elif event == 'Next Token':
         NextToken()
-    elif event == 'Put on Hold':
+    elif event == 'Hold Token':
         HoldToken()
+
 window.close()
