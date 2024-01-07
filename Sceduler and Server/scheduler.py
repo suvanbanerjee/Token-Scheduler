@@ -1,5 +1,7 @@
 import socket
 global queue 
+TCP_IP = "127.0.0.1"
+TCP_PORT = 1234
 queue = [1,2,3,4,5]
 
 def insert_token(token):
@@ -16,7 +18,7 @@ def prempt_token(token):
 
 def fcs_scheduler():
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    server_socket.bind(('127.0.0.1', 1234))
+    server_socket.bind((TCP_IP, TCP_PORT))
     server_socket.listen(1)
     print("Scheduler started")
     while True:
@@ -26,7 +28,7 @@ def fcs_scheduler():
         data = data.decode()
         if data == "next_token":
             token = remove_token()
-            client_socket.send(bytes(token, "utf-8"))
+            # client_socket.send(bytes(token, "utf-8"))
         elif data == "hold_token":
             token = client_socket.recv(1024)
             token = token.decode()
@@ -35,6 +37,7 @@ def fcs_scheduler():
             token = client_socket.recv(1024)
             token = token.decode()
             insert_token(token)
+        
         print(queue)
         client_socket.close()
     server_socket.close()

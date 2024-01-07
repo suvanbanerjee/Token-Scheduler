@@ -11,10 +11,16 @@ TCP_PORT = 1234
 
 def NextToken():
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    sock.sendto(bytes("next_token", "utf-8"), (TCP_IP, TCP_PORT))
+    if sock.connect_ex((TCP_IP, TCP_PORT)) == 0:
+        sock.sendto(bytes("next_token", "utf-8"), (TCP_IP, TCP_PORT))
+    else:
+        sg.popup("Server is not running")
 def HoldToken():
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    sock.sendto(bytes("hold_token", "utf-8"), (TCP_IP, TCP_PORT))
+    if sock.connect_ex((TCP_IP, TCP_PORT)) == 0:
+        sock.sendto(bytes("hold_token", "utf-8"), (TCP_IP, TCP_PORT))
+    else:
+        sg.popup("Server is not running")
 
 layout = [[sg.Column([[sg.Button('Next Token',font="10" , size=(10, 2), button_color='green')]], justification='center')],
     [sg.Column([[sg.Button('Hold Token',font="10", size=(10, 2), button_color='red')]], justification='center')]]
@@ -26,7 +32,7 @@ while True:
     if event == sg.WINDOW_CLOSED or event == 'Close':
         break
     elif event == 'Next Token':
-        pass
+        NextToken()
     elif event == 'Put on Hold':
-        pass
+        HoldToken()
 window.close()
