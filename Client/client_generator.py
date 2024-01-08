@@ -6,7 +6,7 @@ pygame.mixer.init()
 ding = pygame.mixer.Sound('ding.mp3')
 sg.theme('LightGrey1')
 count = 1
-TCP_IP = "127.0.0.1"
+TCP_IP = "192.168.83.25"
 TCP_PORT = 1234
 
 def send_token(token):
