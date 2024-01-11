@@ -1,6 +1,6 @@
 import socket
 global queue 
-TCP_IP = "192.168.83.25"
+TCP_IP = "127.0.0.1"
 TCP_PORT = 1234
 queue = []
 
