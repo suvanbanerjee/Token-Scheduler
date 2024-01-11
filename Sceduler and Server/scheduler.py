@@ -1,4 +1,3 @@
-import json
 import socket
 global queue 
 TCP_IP = "192.168.83.25"
@@ -45,9 +44,6 @@ def fcs_scheduler():
             token = token.decode()
             insert_token(data)  
         print(queue)
-        fp=open("queue_state.json","w")
-        json.dump(queue,fp)
-        fp.close()
         client_socket.close()
     server_socket.close()
 
