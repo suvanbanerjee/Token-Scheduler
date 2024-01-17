@@ -52,4 +52,6 @@ while True:
         event, values = token_window.read()
         if event == sg.WINDOW_CLOSED or event == 'Close':
             token_window.close()
+        else:
+            pass
 window.close()

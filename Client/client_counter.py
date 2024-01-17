@@ -38,5 +38,7 @@ while True:
         NextToken()
     elif event == 'Hold Token':
         HoldToken()
+    else:
+        break
 
 window.close()
