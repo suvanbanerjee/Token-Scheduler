@@ -5,6 +5,8 @@
     <title>Costumer Display</title>
     <link rel="stylesheet" href="style.css">
     <script src="main.js"></script>
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css" />
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
 </head>
 <body>
 <center>
@@ -14,11 +16,12 @@
 
     <div id="Text"><h2>Current Token</h2></div>
     <div class="Row" id="Token">
-        <div class="Column"><script>document.write(token_1)</script></div>
-        <div class="Column"><script>document.write(token_2)</script></div>
-        <div class="Column"><script>document.write(token_3)</script></div>
-        <div class="Column"><script>document.write(token_4)</script></div>
+        <div class="Column" id="token_1"></div>
+        <div class="Column" id="token_2"></div>
+        <div class="Column" id="token_3"></div>
+        <div class="Column" id="token_4"></div>
     </div>
 </center>
+<script type="py" src="./main.py" config="./pyscript.toml"></script>
 </body>
 </html> 
