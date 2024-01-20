@@ -1,5 +1,7 @@
 import socket
 import json
+import multiprocessing
+from main import gui
 
 global queue 
 TCP_IP = "127.0.0.1"
@@ -52,5 +54,7 @@ def fcs_scheduler():
         client_socket.close()
 
 if __name__ == "__main__":
-    fcs_scheduler()
-
+    server = multiprocessing.Process(target=fcs_scheduler,args=())
+    display = multiprocessing.Process(target=gui,args=())
+    server.start()
+    display.start()
