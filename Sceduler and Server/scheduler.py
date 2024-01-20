@@ -50,7 +50,6 @@ def fcs_scheduler():
         json.dump(queue,fp)
         fp.close()
         client_socket.close()
-    server_socket.close()
 
 if __name__ == "__main__":
     fcs_scheduler()
