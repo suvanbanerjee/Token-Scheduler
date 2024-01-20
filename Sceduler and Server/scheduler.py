@@ -48,12 +48,15 @@ def fcs_scheduler():
             token = token.decode()
             insert_token(data)  
         print(queue)
-        fp=open("queue_state.json","w")
-        json.dump(queue,fp)
+        fp=open("data.json","w")
+        json.dump(queue[0:4],fp)
         fp.close()
         client_socket.close()
 
 if __name__ == "__main__":
+    file = open("data.json","w")
+    file.write("[]")
+    file.close()
     server = multiprocessing.Process(target=fcs_scheduler,args=())
     display = multiprocessing.Process(target=gui,args=())
     server.start()

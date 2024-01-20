@@ -15,7 +15,7 @@ def gui():
     root.title("Token System")
     tk.Label(text="\nCurrent Tokens\n\n", font=("Helvetica",70,"bold")).pack()
     # tk.Label(text="Procede to counters\n", font=("Arial",20)).pack()
-    tokens = tk.Label(root, pady=5, padx=5 ,font=("Helvetica",90,"bold"), fg="#0079D3")
+    tokens = tk.Label(root, pady=5, padx=5 ,font=("Helvetica",80,"bold"), fg="#0079D3")
     tokens.pack()
     update_tokens()
     root.mainloop()
