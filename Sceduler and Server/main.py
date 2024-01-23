@@ -7,6 +7,7 @@ global queue
 TCP_IP = "127.0.0.1"
 TCP_PORT = 1234
 queue = []
+no_of_tokens = 4
 
 def insert_token(token):
     global queue
@@ -49,7 +50,7 @@ def fcs_scheduler():
             insert_token(data)  
         print(queue)
         fp=open("data.json","w")
-        json.dump(queue[0:4],fp)
+        json.dump(queue[0:no_of_tokens],fp)
         fp.close()
         client_socket.close()
 
