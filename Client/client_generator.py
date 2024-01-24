@@ -13,8 +13,10 @@ def send_token(token):
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     if sock.connect_ex((TCP_IP, TCP_PORT)) == 0:
         sock.sendto(bytes(token, "utf-8"), (TCP_IP, TCP_PORT))
+        return True
     else:
         sg.popup("Server is not running")
+        return False
 
 def gen_token(counter):
     global count
@@ -40,18 +42,21 @@ while True:
         break
     elif event:
         ding.play()
-        token=gen_token(event)
-        send_token(token)
-        layout2=[
-            [sg.Text('\n  Your token is \n', font='Helvetica 20', justification='center', expand_x=True)],
-            [sg.Text(token, font='Helvetica 50 bold', justification='center', expand_x=True, text_color='#0079D3')],
-            [sg.Text('\n  Please wait for your turn \n', font='Helvetica 15', justification='center', expand_x=True)],
-            [sg.Column([[sg.Button('Close', size=(5, 2), font='Helvetica 12', button_color="#0079D3")]], justification='center')]
-        ]
-        token_window = sg.Window('Token', layout2, finalize=True, resizable=False)
-        event, values = token_window.read()
-        if event == sg.WINDOW_CLOSED or event == 'Close':
-            token_window.close()
+        token = gen_token(event)
+        flag = send_token(token)
+        if flag:
+            layout2=[
+                [sg.Text('\n  Your token is \n', font='Helvetica 20', justification='center', expand_x=True)],
+                [sg.Text(token, font='Helvetica 50 bold', justification='center', expand_x=True, text_color='#0079D3')],
+                [sg.Text('\n  Please wait for your turn \n', font='Helvetica 15', justification='center', expand_x=True)],
+                [sg.Column([[sg.Button('Close', size=(5, 2), font='Helvetica 12', button_color="#0079D3")]], justification='center')]
+            ]
+            token_window = sg.Window('Token', layout2, finalize=True, resizable=False)
+            event, values = token_window.read()
+            if event == sg.WINDOW_CLOSED or event == 'Close':
+                token_window.close()
+            else:
+                pass
         else:
             pass
 window.close()
